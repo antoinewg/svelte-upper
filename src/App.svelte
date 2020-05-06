@@ -1,7 +1,8 @@
 <script>
   import { tick } from "svelte";
 
-  let text;
+  let text =
+    "Nel mezzo del cammin di nostra vita\nmi ritrovai per una selva OSCURA,\nché la diritta via era smarrita.";
 
   async function handleKeydown(event) {
     if (event.key !== "Tab") return;
@@ -25,12 +26,28 @@
 </script>
 
 <style>
+  body {
+    padding: 8rem;
+  }
+
   textarea {
     width: 100%;
     height: 200px;
   }
 </style>
 
-<textarea
-  value={text || 'Select some text and hit the tab key to toggle uppercase.'}
-  on:keydown={handleKeydown} />
+<body>
+  <p>
+    Hello, here's a simple tool to lowercase/UPPERCASE text in
+    <b>mass.</b>
+  </p>
+  <p>
+    Just select some text and hit the
+    <b>
+      <code>Tab</code>
+    </b>
+    key to toggle uppercase
+  </p>
+  <textarea value={text} on:keydown={handleKeydown} />
+
+</body>
